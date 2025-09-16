@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salõo de Tranças - Estilo e Arte</title>
+    <title>Flay Defind</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,208 +18,230 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-100 text-gray-800">
 
     <!-- Navbar -->
-    <header class="bg-white container-shadow p-4 md:p-6 sticky top-0 z-50">
+    <header class="bg-purple-900 text-white p-4 md:p-6 mb-6">
         <nav class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-gray-900">
-                <i class="fas fa-cut text-purple-600"></i>
-                <span class="ml-2">Arte em Tranças</span>
-            </a>
-            <div class="hidden md:flex space-x-6 text-lg font-medium">
-                <a href="#servicos" class="text-gray-600 hover:text-purple-600 transition-colors duration-300">Serviços</a>
-                <a href="#galeria" class="text-gray-600 hover:text-purple-600 transition-colors duration-300">Galeria</a>
-                <a href="#contato" class="text-gray-600 hover:text-purple-600 transition-colors duration-300">Contato</a>
+            <div class="flex-1 flex justify-center">
+                <a href="#" class="flex items-center space-x-2">
+                    <img src="https://i.imgur.com/EnDWs22.png" alt="Logo Flay Defind" class="h-64 md:h-80">
+                </a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden text-gray-600 text-2xl">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div class="relative">
+                <button id="cartButton" class="bg-purple-700 text-white p-2 rounded-full hover:bg-purple-600 transition-colors duration-300 relative">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cartItemCount" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full transform translate-x-1/2 -translate-y-1/2">0</span>
+                </button>
+            </div>
         </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-white bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-8 text-2xl font-bold">
-            <a href="#servicos" class="text-gray-800 hover:text-purple-600" onclick="hideMobileMenu()">Serviços</a>
-            <a href="#galeria" class="text-gray-800 hover:text-purple-600" onclick="hideMobileMenu()">Galeria</a>
-            <a href="#contato" class="text-gray-800 hover:text-purple-600" onclick="hideMobileMenu()">Contato</a>
-            <button class="absolute top-6 right-6 text-gray-800 text-3xl" onclick="hideMobileMenu()">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="bg-purple-50 py-16 md:py-24 text-center">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4">
-                Realce sua Beleza com Nossas Tranças
-            </h1>
-            <p class="text-lg md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                Especialistas em tranças de todos os tipos. Agende seu horário e transforme seu visual.
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-6 grid lg:grid-cols-3 gap-6">
+
+        <!-- Product Section -->
+        <section class="lg:col-span-2 bg-white rounded-xl p-6 container-shadow flex flex-col md:flex-row items-center md:items-start gap-8">
+            <div class="md:w-1/2 w-full flex-shrink-0">
+                <img src="https://i.imgur.com/U5Va7ZD.jpeg" alt="Podama de Uva Flay Defind" class="w-full h-auto rounded-lg container-shadow">
+            </div>
+            <div class="md:w-1/2 w-full text-center md:text-left">
+                <h1 class="text-4xl font-extrabold text-gray-900 mb-2">Podama de Uva</h1>
+                <p class="text-lg text-gray-600 mb-4">Marca: Flay Defind</p>
+                <p class="text-xl font-semibold text-purple-600 mb-6">R$ 45,00</p>
+                <p class="text-gray-700 mb-6">
+                    O Podama de Uva Flay Defind é o toque final perfeito para suas tranças. Enriquecido com extrato natural de uva, proporciona um brilho intenso, nutrição e um aroma delicioso. Sua fórmula leve não pesa e ajuda a manter a hidratação dos fios e o alinhamento das tranças. Ideal para uso diário.
+                </p>
+                <button id="addToCartButton" class="w-full md:w-auto bg-purple-600 text-white p-3 rounded-lg font-bold text-lg hover:bg-purple-700 transition-colors duration-300 container-shadow">
+                    Adicionar ao Carrinho
+                </button>
+            </div>
+        </section>
+
+        <!-- Shopping Cart -->
+        <aside id="cartSection" class="fixed inset-y-0 right-0 w-80 bg-white z-50 p-6 transform translate-x-full transition-transform duration-300 ease-in-out container-shadow lg:translate-x-0 lg:static lg:w-full lg:rounded-xl">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-700">Seu Carrinho</h2>
+                <button id="closeCartButton" class="lg:hidden text-gray-500 hover:text-gray-700">
+                    <i class="fa-solid fa-xmark text-2xl"></i>
+                </button>
+            </div>
+            <div id="cartItems" class="space-y-4 max-h-[calc(100vh-200px)] overflow-y-auto pr-2">
+                <!-- Cart items will be dynamically generated here -->
+            </div>
+            <div class="mt-6 pt-4 border-t-2 border-dashed border-gray-200">
+                <div class="flex justify-between items-center mb-4 text-xl font-bold">
+                    <span>Total:</span>
+                    <span id="cartTotal" class="text-purple-600">R$ 0,00</span>
+                </div>
+                <button id="checkoutButton" class="w-full bg-green-500 text-white p-3 rounded-lg font-semibold text-lg hover:bg-green-600 transition-colors duration-300">
+                    Finalizar Compra
+                </button>
+            </div>
+        </aside>
+    </main>
+    
+    <!-- Services and Pricing Section -->
+    <section class="container mx-auto p-4 md:p-6">
+        <div class="bg-white rounded-xl p-6 container-shadow">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4 text-center">Nossos Serviços</h2>
+            <div class="flex flex-col lg:flex-row gap-6">
+                <!-- Tranças Nagô -->
+                <div class="lg:w-1/2 p-6 bg-gray-50 rounded-lg">
+                    <h3 class="text-2xl font-semibold text-purple-700 mb-2">Tranças Nagô</h3>
+                    <p class="text-gray-700 mb-4">
+                        As tranças nagô são um estilo tradicional e artístico, feitas rentes ao couro cabeludo, criando padrões geométricos e desenhos únicos. Além da beleza, elas protegem o cabelo natural e são ideais para quem busca um visual marcante e de baixa manutenção.
+                    </p>
+                    <div class="flex items-center justify-between font-bold text-lg text-gray-800">
+                        <span>Valor:</span>
+                        <span class="text-purple-600">A partir de R$ 150,00*</span>
+                    </div>
+                </div>
+                <!-- Definição de Cabelo -->
+                <div class="lg:w-1/2 p-6 bg-gray-50 rounded-lg">
+                    <h3 class="text-2xl font-semibold text-purple-700 mb-2">Definição de Cabelo</h3>
+                    <p class="text-gray-700 mb-4">
+                        Este serviço visa realçar a beleza e a forma natural dos seus cachos. Usamos técnicas e produtos de alta qualidade para garantir que cada cacho seja definido, hidratado e com um volume incrível. Um ótimo tratamento para cabelos naturais ou em transição.
+                    </p>
+                    <div class="flex items-center justify-between font-bold text-lg text-gray-800">
+                        <span>Valor:</span>
+                        <span class="text-purple-600">A partir de R$ 80,00*</span>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-sm text-gray-500 mt-4">* Os valores podem variar dependendo do comprimento e volume do cabelo.</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="container mx-auto p-4 md:p-6 text-center">
+        <div class="bg-white rounded-xl p-6 container-shadow">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Sobre a Flay Defind</h2>
+            <p class="text-gray-700 mb-6 max-w-2xl mx-auto">
+                Na Flay Defind, acreditamos que a beleza está na sua essência. Nosso objetivo é criar produtos que realcem o brilho natural e o poder do seu cabelo, com ingredientes de alta qualidade e fórmulas inovadoras. O Podama de Uva é o nosso carro-chefe, desenvolvido para nutrir e dar vida às suas tranças.
             </p>
-            <a href="#contato" class="inline-block bg-purple-600 text-white font-bold py-3 px-8 rounded-full hover:bg-purple-700 transition-colors duration-300 container-shadow">
-                Agendar Agora
-            </a>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="servicos" class="py-16 bg-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12">Nossos Serviços</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-gray-50 rounded-lg p-6 container-shadow flex flex-col items-center hover:bg-purple-50 transition-colors duration-300">
-                    <i class="fas fa-braid text-5xl text-purple-600 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Box Braids</h3>
-                    <p class="text-gray-600 text-center flex-grow">
-                        Tranças soltas e protetoras, feitas com extensões sintéticas. Variedade de cores e tamanhos.
-                    </p>
-                    <span class="mt-4 text-lg font-semibold text-purple-600">A partir de R$ 150</span>
-                </div>
-                <!-- Service 2 -->
-                <div class="bg-gray-50 rounded-lg p-6 container-shadow flex flex-col items-center hover:bg-purple-50 transition-colors duration-300">
-                    <i class="fas fa-compress-arrows-alt text-5xl text-purple-600 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Twist</h3>
-                    <p class="text-gray-600 text-center flex-grow">
-                        Tranças duplas torcidas para um visual único e elegante.
-                    </p>
-                    <span class="mt-4 text-lg font-semibold text-purple-600">A partir de R$ 120</span>
-                </div>
-                <!-- Service 3 -->
-                <div class="bg-gray-50 rounded-lg p-6 container-shadow flex flex-col items-center hover:bg-purple-50 transition-colors duration-300">
-                    <i class="fas fa-cogs text-5xl text-purple-600 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Dreads</h3>
-                    <p class="text-gray-600 text-center flex-grow">
-                        Manutenção e criação de dreadlocks naturais ou sintéticos.
-                    </p>
-                    <span class="mt-4 text-lg font-semibold text-purple-600">A partir de R$ 200</span>
-                </div>
-                <!-- Service 4 -->
-                <div class="bg-gray-50 rounded-lg p-6 container-shadow flex flex-col items-center hover:bg-purple-50 transition-colors duration-300">
-                    <i class="fas fa-brush text-5xl text-purple-600 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Nagô</h3>
-                    <p class="text-gray-600 text-center flex-grow">
-                        Tranças rentes ao couro cabeludo que formam desenhos incríveis.
-                    </p>
-                    <span class="mt-4 text-lg font-semibold text-purple-600">A partir de R$ 80</span>
-                </div>
-                <!-- Service 5 -->
-                <div class="bg-gray-50 rounded-lg p-6 container-shadow flex flex-col items-center hover:bg-purple-50 transition-colors duration-300">
-                    <i class="fas fa-magic text-5xl text-purple-600 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Cabelo Orgânico</h3>
-                    <p class="text-gray-600 text-center flex-grow">
-                        Aplicações de cabelo orgânico, com visual natural e leve.
-                    </p>
-                    <span class="mt-4 text-lg font-semibold text-purple-600">A partir de R$ 180</span>
-                </div>
-                <!-- Service 6 -->
-                <div class="bg-gray-50 rounded-lg p-6 container-shadow flex flex-col items-center hover:bg-purple-50 transition-colors duration-300">
-                    <i class="fas fa-head-side-mask text-5xl text-purple-600 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Manutenção</h3>
-                    <p class="text-gray-600 text-center flex-grow">
-                        Cuidados e retoques para prolongar a vida das suas tranças.
-                    </p>
-                    <span class="mt-4 text-lg font-semibold text-purple-600">A partir de R$ 60</span>
-                </div>
+            <div class="flex justify-center space-x-6 text-3xl text-gray-600">
+                <a href="#" class="hover:text-purple-600 transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-purple-600 transition-colors duration-300"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-purple-600 transition-colors duration-300"><i class="fab fa-whatsapp"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="galeria" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12">Nossa Galeria</h2>
-            <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <img src="https://placehold.co/600x600/e9d5ff/8b5cf6?text=Trança+1" alt="Trança 1" class="rounded-lg container-shadow w-full h-auto object-cover">
-                <img src="https://placehold.co/600x600/f3e8ff/c084fc?text=Trança+2" alt="Trança 2" class="rounded-lg container-shadow w-full h-auto object-cover">
-                <img src="https://placehold.co/600x600/ede9fe/a78bfa?text=Trança+3" alt="Trança 3" class="rounded-lg container-shadow w-full h-auto object-cover">
-                <img src="https://placehold.co/600x600/f5f3ff/a5b4fc?text=Trança+4" alt="Trança 4" class="rounded-lg container-shadow w-full h-auto object-cover">
-                <img src="https://placehold.co/600x600/e9d5ff/8b5cf6?text=Trança+5" alt="Trança 5" class="rounded-lg container-shadow w-full h-auto object-cover">
-                <img src="https://placehold.co/600x600/f3e8ff/c084fc?text=Trança+6" alt="Trança 6" class="rounded-lg container-shadow w-full h-auto object-cover">
-                <img src="https://placehold.co/600x600/ede9fe/a78bfa?text=Trança+7" alt="Trança 7" class="rounded-lg container-shadow w-full h-auto object-cover">
-                <img src="https://placehold.co/600x600/f5f3ff/a5b4fc?text=Trança+8" alt="Trança 8" class="rounded-lg container-shadow w-full h-auto object-cover">
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contato" class="py-16 bg-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12">Agende Seu Horário</h2>
-            <div class="max-w-xl mx-auto bg-gray-50 p-8 rounded-lg container-shadow">
-                <form id="contact-form" class="space-y-6">
-                    <div>
-                        <input type="text" id="name" name="name" placeholder="Seu Nome" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500">
-                    </div>
-                    <div>
-                        <input type="email" id="email" name="email" placeholder="Seu E-mail" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500">
-                    </div>
-                    <div>
-                        <textarea id="message" name="message" rows="4" placeholder="Sua Mensagem ou Serviço de Interesse" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-purple-600 text-white font-bold py-3 rounded-lg hover:bg-purple-700 transition-colors duration-300">
-                        Enviar Agendamento
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal for Submission Message -->
+    <!-- Modal for Checkout Message -->
     <div id="modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center p-4 z-50">
         <div class="bg-white p-8 rounded-lg shadow-lg text-center max-w-sm w-full">
-            <h3 class="text-2xl font-bold text-purple-600 mb-4">Agendamento Enviado!</h3>
-            <p class="text-gray-700 mb-6">Em breve entraremos em contato para confirmar o seu horário.</p>
+            <h3 class="text-2xl font-bold text-green-600 mb-4">Compra Finalizada!</h3>
+            <p class="text-gray-700 mb-6">Sua compra foi processada com sucesso. Obrigado!</p>
             <button id="closeModalButton" class="bg-purple-600 text-white p-2 rounded-lg hover:bg-purple-700 transition-colors duration-300">
                 Fechar
             </button>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-8">
-        <div class="container mx-auto px-4 text-center md:flex md:justify-between md:items-center">
-            <p>&copy; 2024 Arte em Tranças. Todos os direitos reservados.</p>
-            <div class="mt-4 md:mt-0 flex justify-center space-x-6">
-                <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 text-2xl"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 text-2xl"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 text-2xl"><i class="fab fa-whatsapp"></i></a>
-            </div>
-        </div>
-    </footer>
-
     <script>
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const contactForm = document.getElementById('contact-form');
+        // Product details
+        const product = {
+            id: 1,
+            name: 'Podama de Uva',
+            price: 45.00,
+            image: 'https://i.imgur.com/U5Va7ZD.jpeg'
+        };
+
+        let cart = [];
+
+        const addToCartButton = document.getElementById('addToCartButton');
+        const cartItemsContainer = document.getElementById('cartItems');
+        const cartTotalSpan = document.getElementById('cartTotal');
+        const cartItemCountSpan = document.getElementById('cartItemCount');
+        const cartButton = document.getElementById('cartButton');
+        const cartSection = document.getElementById('cartSection');
+        const closeCartButton = document.getElementById('closeCartButton');
+        const checkoutButton = document.getElementById('checkoutButton');
         const modal = document.getElementById('modal');
         const closeModalButton = document.getElementById('closeModalButton');
 
-        function hideMobileMenu() {
-            mobileMenu.classList.add('hidden');
+        // Function to render the cart
+        function renderCart() {
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-center text-gray-500">Seu carrinho está vazio.</p>';
+            } else {
+                cart.forEach(item => {
+                    const cartItemEl = document.createElement('div');
+                    cartItemEl.className = 'flex items-center space-x-4 bg-gray-50 p-3 rounded-lg';
+                    cartItemEl.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-lg object-cover">
+                        <div class="flex-1">
+                            <h4 class="font-bold">${item.name}</h4>
+                            <p class="text-sm text-gray-600">Qtd: ${item.quantity}</p>
+                            <p class="text-sm text-purple-600">R$ ${(item.price * item.quantity).toFixed(2)}</p>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(cartItemEl);
+                    total += item.price * item.quantity;
+                });
+            }
+
+            cartTotalSpan.textContent = `R$ ${total.toFixed(2)}`;
+            cartItemCountSpan.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
         }
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
+        // Add to cart function
+        function addToCart() {
+            const cartItem = cart.find(item => item.id === product.id);
+
+            if (cartItem) {
+                cartItem.quantity++;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            renderCart();
+        }
+
+        // Checkout function
+        function checkout() {
+            if (cart.length === 0) {
+                modal.querySelector('h3').textContent = 'Seu carrinho está vazio.';
+                modal.querySelector('h3').className = 'text-2xl font-bold text-red-600 mb-4';
+                modal.querySelector('p').textContent = 'Adicione o produto para continuar.';
+                modal.style.display = 'flex';
+                return;
+            }
+
+            modal.querySelector('h3').textContent = 'Compra Finalizada!';
+            modal.querySelector('h3').className = 'text-2xl font-bold text-green-600 mb-4';
+            modal.querySelector('p').textContent = 'Sua compra foi processada com sucesso. Obrigado!';
+            modal.style.display = 'flex';
+
+            cart = [];
+            renderCart();
+        }
+
+        // Add event listeners
+        addToCartButton.addEventListener('click', addToCart);
+
+        cartButton.addEventListener('click', () => {
+            cartSection.classList.toggle('translate-x-full');
         });
 
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            // In a real application, you would send this data to a server
-            modal.style.display = 'flex';
-            contactForm.reset();
+        closeCartButton.addEventListener('click', () => {
+            cartSection.classList.add('translate-x-full');
         });
+
+        checkoutButton.addEventListener('click', checkout);
 
         closeModalButton.addEventListener('click', () => {
             modal.style.display = 'none';
         });
 
-        // Close modal on outside click
-        window.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
+        // Initial render
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCart();
         });
+
     </script>
 </body>
 </html>
