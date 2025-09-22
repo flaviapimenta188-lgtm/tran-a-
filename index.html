@@ -1,54 +1,38 @@
-
-        
-    <ext-white p-2 rounded-full hover:bg-purple-600 transition-colors duration-300 relative">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span id="cartItemCount" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full transform translate-x-1/2 -translate-y-1/2">0</span>
-                </button>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Main Content -->
-    <main class="container mx-auto p-4 md:p-6 grid lg:grid-cols-3 gap-6">
-
-        <!-- Product Section -->
-        <section class="lg:col-span-2 bg-white rounded-xl p-6 container-shadow flex flex-col md:flex-row items-center md:items-start gap-8">
-            <div class="md:w-1/2 w-full flex-shrink-0">
-                <img src="https://i.imghippo.com/files/pb5442yeM.png" alt="Pomada Modeladora de Uva Flay Defind" class="w-full h-auto rounded-lg container-shadow">
-            </div>
-            <div class="md:w-1/2 w-full text-center md:text-left">
-                <h1 class="text-4xl font-extrabold text-gray-900 mb-2">Pomada Modeladora</h1>
-                <p class="text-lg text-gray-600 mb-4">Marca: Flay Defind</p>
-                <p class="text-xl font-semibold text-purple-600 mb-6">R$ 20,00</p>
-                <p class="text-gray-700 mb-6">
-                    A Pomada Modeladora de Uva Flay Defind é o toque final perfeito para suas tranças. Enriquecido com extrato natural de uva, proporciona um brilho intenso, nutrição e um aroma delicioso. Sua fórmula leve não pesa e ajuda a manter a hidratação dos fios e o alinhamento das tranças. Ideal para uso diário.
-                </p>
-                <button id="addToCartButton" class="w-full md:w-auto bg-purple-600 text-white p-3 rounded-lg font-bold text-lg hover:bg-purple-700 transition-colors duration-300 container-shadow">
-                    Adicionar ao Carrinho
-                </button>
-            </div>
-        </section>
-
-        <!-- Shopping Cart -->
-        <aside id="cartSection" class="fixed inset-y-0 right-0 w-80 bg-white z-50!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flay Defind</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Poppins for a modern, clean look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
+            background-color: #f3f4f6;
         }
         .container-shadow {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
         }
-        /* Mobile-first approach for cart section */
+        /* Custom gradient classes */
+        .bg-gradient-purple-pink {
+            background-image: linear-gradient(to right, #8b5cf6, #ec4899);
+        }
+        .text-gradient-purple-pink {
+            background-image: linear-gradient(to right, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Transition for sidebar */
+        #cartSection {
+            transition: transform 0.3s ease-in-out;
+        }
         @media (max-width: 1023px) {
             #cartSection.translate-x-full {
                 transform: translateX(100%);
@@ -58,94 +42,93 @@
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-    <!-- Navbar -->
-    <!-- Navbar with darker background and branded pattern -->
-    <header class="bg-purple-950 text-white p-4 md:p-6 mb-6 relative overflow-hidden" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'150\'%3E%3Ctext x=\'0\' y=\'100\' fill=\'rgba(255,255,255,0.05)\' font-family=\'Poppins, sans-serif\' font-size=\'16\' transform=\'rotate(-15)\'%3EFlay Defind%3C/text%3E%3C/svg%3E');">
+    <!-- Navbar Header -->
+    <header class="bg-gray-200 p-4 md:p-6 mb-8 relative container-shadow">
         <nav class="container mx-auto flex justify-between items-center relative z-10">
             <div class="flex-1 flex justify-center">
                 <a href="#" class="flex items-center space-x-2">
-                    <img src="https://i.imgur.com/EnDWs22.png" alt="Logo Flay Defind" class="h-64 md:h-80">
+                    <img src="https://i.imgur.com/EnDWs22.png" alt="Logo Flay Defind" class="h-24 md:h-32">
                 </a>
             </div>
+            <!-- Cart Button and counter -->
             <div class="relative">
-                <button id="cartButton" class="bg-purple-700 t p-6 transform translate-x-full transition-transform duration-300 ease-in-out container-shadow lg:translate-x-0 lg:static lg:w-full lg:rounded-xl">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-bold text-gray-700">Seu Carrinho</h2>
-                <button id="closeCartButton" class="lg:hidden text-gray-500 hover:text-gray-700">
-                    <i class="fa-solid fa-xmark text-2xl"></i>
+                <button id="cartButton" class="bg-gradient-purple-pink text-white p-3 rounded-full hover:bg-purple-600 transition-colors duration-300 relative">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cartItemCount" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-pink-500 rounded-full transform translate-x-1/2 -translate-y-1/2">0</span>
                 </button>
             </div>
-            <div id="cartItems" class="space-y-4 max-h-[calc(100vh-200px)] overflow-y-auto pr-2">
-                <!-- Cart items will be dynamically generated here -->
-            </div>
-            <div class="mt-6 pt-4 border-t-2 border-dashed border-gray-200">
-                <div class="flex justify-between items-center mb-4 text-xl font-bold">
-                    <span>Total:</span>
-                    <span id="cartTotal" class="text-purple-600">R$ 0,00</span>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto p-4 md:p-6 grid lg:grid-cols-3 gap-8">
+        
+        <!-- Product and Services Section -->
+        <section class="lg:col-span-2 space-y-8">
+            <!-- Featured Product Section -->
+            <div class="bg-white rounded-2xl p-6 container-shadow flex flex-col md:flex-row items-center md:items-start gap-8">
+                <div class="md:w-1/2 w-full flex-shrink-0">
+                    <img src="https://i.ibb.co/kVnBmRFL/Defind-Flay-Pomada-Modeladora.png" alt="Pomada Modeladora de Uva Flay Defind" class="w-full h-auto rounded-xl container-shadow">
                 </div>
-                <button id="checkoutButton" class="w-full bg-green-500 text-white p-3 rounded-lg font-semibold text-lg hover:bg-green-600 transition-colors duration-300">
-                    Finalizar Compra
-                </button>
+                <div class="md:w-1/2 w-full text-center md:text-left">
+                    <h1 class="text-4xl font-extrabold text-gray-900 mb-2">Pomada Modeladora</h1>
+                    <p class="text-lg text-gray-600 mb-4">Marca: Flay Defind</p>
+                    <p class="text-xl font-semibold text-purple-600 mb-6">R$ 20,00</p>
+                    <p class="text-gray-700 mb-6">
+                        A Pomada Modeladora de Uva Flay Defind é o toque final perfeito para suas tranças. Enriquecido com extrato natural de uva, proporciona um brilho intenso, nutrição e um aroma delicioso. Sua fórmula leve não pesa e ajuda a manter a hidratação dos fios e o alinhamento das tranças. Ideal para uso diário.
+                    </p>
+                    <button data-product-id="1" class="addToCartButton w-full md:w-auto bg-gradient-purple-pink text-white p-3 rounded-lg font-bold text-lg hover:opacity-90 transition-opacity duration-300 container-shadow">
+                        Adicionar ao Carrinho
+                    </button>
+                </div>
+            </div>
+
+            <!-- More Products Section -->
+            <div class="bg-white rounded-2xl p-6 container-shadow">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Outros Produtos</h2>
+                <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <!-- Products will be dynamically generated here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Services and Pricing Section -->
+            <div class="bg-white rounded-2xl p-6 container-shadow">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Nossos Serviços</h2>
+                <div id="servicesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Services will be dynamically generated here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Shopping Cart Sidebar -->
+        <aside id="cartSection" class="fixed inset-y-0 right-0 w-80 bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out container-shadow lg:translate-x-0 lg:static lg:w-full lg:rounded-2xl">
+            <div class="p-6 h-full flex flex-col">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-700">Seu Carrinho</h2>
+                    <button id="closeCartButton" class="lg:hidden text-gray-500 hover:text-gray-700">
+                        <i class="fa-solid fa-xmark text-2xl"></i>
+                    </button>
+                </div>
+                <div id="cartItems" class="flex-grow space-y-4 overflow-y-auto pr-2">
+                    <!-- Cart items will be dynamically generated here by JavaScript -->
+                </div>
+                <div class="mt-6 pt-4 border-t-2 border-dashed border-gray-200">
+                    <div class="flex justify-between items-center mb-4 text-xl font-bold">
+                        <span>Total:</span>
+                        <span id="cartTotal" class="text-purple-600">R$ 0,00</span>
+                    </div>
+                    <button id="checkoutButton" class="w-full bg-gradient-to-r from-emerald-500 to-green-600 text-white p-3 rounded-lg font-semibold text-lg hover:opacity-90 transition-opacity duration-300">
+                        Finalizar Compra
+                    </button>
+                </div>
             </div>
         </aside>
     </main>
-    
-    <!-- Services and Pricing Section -->
-    <section class="container mx-auto p-4 md:p-6">
-        <div class="bg-white rounded-xl p-6 container-shadow">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4 text-center">Nossos Serviços</h2>
-            <div class="flex flex-col lg:flex-row gap-6">
-                <!-- Tranças Nagô -->
-                <div class="lg:w-1/2 p-6 bg-gray-50 rounded-lg">
-                    <h3 class="text-2xl font-semibold text-purple-700 mb-2">Tranças Nagô</h3>
-                    <p class="text-gray-700 mb-4">
-                        As tranças nagô são um estilo tradicional e artístico, feitas rentes ao couro cabeludo, criando padrões geométricos e desenhos únicos. Além da beleza, elas protegem o cabelo natural e são ideais para quem busca um visual marcante e de baixa manutenção.
-                    </p>
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between font-bold text-lg text-gray-800">
-                            <span>2 a 3 tranças:</span>
-                            <span class="text-purple-600">R$ 20,00 a R$ 30,00</span>
-                        </div>
-                        <div class="flex items-center justify-between font-bold text-lg text-gray-800">
-                            <span>3 a 5 tranças:</span>
-                            <span class="text-purple-600">R$ 40,00 a R$ 60,00</span>
-                        </div>
-                        <div class="flex items-center justify-between font-bold text-lg text-gray-800">
-                            <span>5+ tranças:</span>
-                            <span class="text-purple-600">R$ 60,00 a R$ 120,00</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Definição de Cabelo -->
-                <div class="lg:w-1/2 p-6 bg-gray-50 rounded-lg">
-                    <h3 class="text-2xl font-semibold text-purple-700 mb-2">Definição de Cabelo</h3>
-                    <p class="text-gray-700 mb-4">
-                        Este serviço visa realçar a beleza e a forma natural dos seus cachos. Usamos técnicas e produtos de alta qualidade para garantir que cada cacho seja definido, hidratado e com um volume incrível. Um ótimo tratamento para cabelos naturais ou em transição.
-                    </p>
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between font-bold text-lg text-gray-800">
-                            <span>Cabelos tipo 2a, 2b, 2c:</span>
-                            <span class="text-purple-600">R$ 60,00</span>
-                        </div>
-                        <div class="flex items-center justify-between font-bold text-lg text-gray-800">
-                            <span>Cabelos tipo 3a, 3b, 3c:</span>
-                            <span class="text-purple-600">R$ 70,00</span>
-                        </div>
-                        <div class="flex items-center justify-between font-bold text-lg text-gray-800">
-                            <span>Cabelos tipo 4a, 4b, 4c:</span>
-                            <span class="text-purple-600">R$ 90,00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <p class="text-center text-sm text-gray-500 mt-4">* Os valores podem variar dependendo do comprimento e volume do cabelo.</p>
-        </div>
-    </section>
 
     <!-- About Section -->
-    <section class="container mx-auto p-4 md:p-6 text-center">
-        <div class="bg-white rounded-xl p-6 container-shadow">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">Sobre a Flay Defind</h2>
+    <section class="container mx-auto p-4 md:p-6 text-center mb-8">
+        <div class="bg-white rounded-2xl p-6 container-shadow">
+            <h2 class="text-3xl font-bold text-gradient-purple-pink mb-4">Sobre a Flay Defind</h2>
             <p class="text-gray-700 mb-6 max-w-2xl mx-auto">
                 Na Flay Defind, acreditamos que a beleza está na sua essência. Nosso objetivo é criar produtos que realcem o brilho natural e o poder do seu cabelo, com ingredientes de alta qualidade e fórmulas inovadoras. A Pomada Modeladora de Uva é o nosso carro-chefe, desenvolvido para nutrir e dar vida às suas tranças.
             </p>
@@ -153,6 +136,7 @@
                 <p>Entre em contato conosco:</p>
                 <p>WhatsApp: <a href="https://wa.me/5511976094344" target="_blank" rel="noopener noreferrer" class="text-gray-700 font-bold hover:text-purple-600 transition-colors duration-300">(11) 97609-4344</a></p>
             </div>
+            <!-- Social media icons -->
             <div class="flex justify-center space-x-6 text-3xl text-gray-600">
                 <a href="https://www.instagram.com/flavia_.lu" target="_blank" rel="noopener noreferrer" class="hover:text-purple-600 transition-colors duration-300">
                     <i class="fab fa-instagram"></i>
@@ -165,6 +149,13 @@
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-4 text-center">
+        <div class="container mx-auto">
+            <p class="text-sm">&copy; 2025 Flay Defind. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
     <!-- Modal for Checkout Message -->
     <div id="modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center p-4 z-50">
         <div class="bg-white p-8 rounded-lg shadow-lg text-center max-w-sm w-full">
@@ -176,18 +167,24 @@
         </div>
     </div>
 
+    <!-- JavaScript for page functionality -->
     <script>
-        // Product details
-        const product = {
-            id: 1,
-            name: 'Pomada Modeladora',
-            price: 20.00,
-            image: 'https://i.imghippo.com/files/pb5442yeM.png'
-        };
+        // Data for products and services
+        const products = [
+            { id: 1, name: 'Pomada Modeladora', price: 20.00, image: 'https://i.ibb.co/kVnBmRFL/Defind-Flay-Pomada-Modeladora.png', description: 'O toque final perfeito para suas tranças. Brilho intenso e nutrição com extrato de uva.' },
+            { id: 2, name: 'Óleo Reparador', price: 35.00, image: 'https://i.ibb.co/mFqfgpGx/IMG-3522.jpg', description: 'Restaura a fibra capilar, deixando os cabelos mais fortes e com brilho.' },
+            { id: 3, name: 'Creme de Pentear', price: 45.00, image: 'https://i.ibb.co/sp0wsFbB', description: 'Define os cachos e mantém a hidratação por mais tempo.' },
+            { id: 4, name: 'Shampoo Nutritivo', price: 30.00, image: 'https://placehold.co/400x400/10b981/fff?text=Shampoo+Nutritivo', description: 'Limpeza suave que nutre e fortalece os fios da raiz às pontas.' },
+        ];
+        
+        const services = [
+            { id: 5, name: 'Tranças Nagô', price: 60.00, image: 'https://placehold.co/400x400/6b7280/fff?text=Tranças+Nagô', description: 'Um estilo tradicional e artístico, feito rente ao couro cabeludo, ideal para um visual marcante.' },
+            { id: 6, name: 'Definição de Cabelo', price: 70.00, image: 'https://placehold.co/400x400/9ca3af/fff?text=Definição', description: 'Realça a beleza e a forma natural dos seus cachos com técnicas e produtos de alta qualidade.' },
+        ];
 
         let cart = [];
 
-        const addToCartButton = document.getElementById('addToCartButton');
+        // Get all necessary HTML elements
         const cartItemsContainer = document.getElementById('cartItems');
         const cartTotalSpan = document.getElementById('cartTotal');
         const cartItemCountSpan = document.getElementById('cartItemCount');
@@ -197,11 +194,14 @@
         const checkoutButton = document.getElementById('checkoutButton');
         const modal = document.getElementById('modal');
         const closeModalButton = document.getElementById('closeModalButton');
+        const productsGrid = document.getElementById('productsGrid');
+        const servicesGrid = document.getElementById('servicesGrid');
 
-        // Function to render the cart
+        // Function to render the cart content and update totals
         function renderCart() {
             cartItemsContainer.innerHTML = '';
             let total = 0;
+            let totalItems = 0;
 
             if (cart.length === 0) {
                 cartItemsContainer.innerHTML = '<p class="text-center text-gray-500">Seu carrinho está vazio.</p>';
@@ -213,52 +213,136 @@
                         <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-lg object-cover">
                         <div class="flex-1">
                             <h4 class="font-bold">${item.name}</h4>
-                            <p class="text-sm text-gray-600">Qtd: ${item.quantity}</p>
-                            <p class="text-sm text-purple-600">R$ ${(item.price * item.quantity).toFixed(2)}</p>
+                            <p class="text-sm text-gray-600">R$ ${item.price.toFixed(2)}</p>
+                            <div class="flex items-center mt-2">
+                                <button data-id="${item.id}" class="updateQuantityButton text-white bg-red-400 w-6 h-6 rounded-full text-center hover:bg-red-500 transition-colors duration-300">-</button>
+                                <span class="mx-2">${item.quantity}</span>
+                                <button data-id="${item.id}" class="updateQuantityButton text-white bg-green-400 w-6 h-6 rounded-full text-center hover:bg-green-500 transition-colors duration-300">+</button>
+                            </div>
                         </div>
+                        <button data-id="${item.id}" class="removeButton text-red-500 hover:text-red-700">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
                     `;
                     cartItemsContainer.appendChild(cartItemEl);
                     total += item.price * item.quantity;
+                    totalItems += item.quantity;
                 });
             }
 
             cartTotalSpan.textContent = `R$ ${total.toFixed(2)}`;
-            cartItemCountSpan.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartItemCountSpan.textContent = totalItems;
         }
 
-        // Add to cart function
-        function addToCart() {
-            const cartItem = cart.find(item => item.id === product.id);
-
-            if (cartItem) {
-                cartItem.quantity++;
-            } else {
-                cart.push({ ...product, quantity: 1 });
+        // Add a product or service to the cart
+        function addToCart(itemId) {
+            const allItems = [...products, ...services];
+            const item = allItems.find(p => p.id === parseInt(itemId));
+            
+            if (item) {
+                const cartItem = cart.find(i => i.id === item.id);
+                if (cartItem) {
+                    cartItem.quantity++;
+                } else {
+                    cart.push({ ...item, quantity: 1 });
+                }
+                renderCart();
             }
+        }
+
+        // Update the quantity of a cart item
+        function updateQuantity(itemId, change) {
+            const item = cart.find(i => i.id === parseInt(itemId));
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    removeFromCart(itemId);
+                }
+                renderCart();
+            }
+        }
+
+        // Remove an item from the cart
+        function removeFromCart(itemId) {
+            cart = cart.filter(item => item.id !== parseInt(itemId));
             renderCart();
         }
 
-        // Checkout function
+        // Handle the checkout process
         function checkout() {
             if (cart.length === 0) {
-                document.getElementById('modal').querySelector('h3').textContent = 'Seu carrinho está vazio.';
-                document.getElementById('modal').querySelector('h3').className = 'text-2xl font-bold text-red-600 mb-4';
-                document.getElementById('modal').querySelector('p').textContent = 'Adicione o produto para continuar.';
-                document.getElementById('modal').style.display = 'flex';
+                modal.querySelector('h3').textContent = 'Seu carrinho está vazio.';
+                modal.querySelector('h3').className = 'text-2xl font-bold text-red-600 mb-4';
+                modal.querySelector('p').textContent = 'Adicione um item para continuar.';
+                modal.style.display = 'flex';
                 return;
             }
 
-            document.getElementById('modal').querySelector('h3').textContent = 'Compra Finalizada!';
-            document.getElementById('modal').querySelector('h3').className = 'text-2xl font-bold text-green-600 mb-4';
-            document.getElementById('modal').querySelector('p').textContent = 'Sua compra foi processada com sucesso. Obrigado!';
-            document.getElementById('modal').style.display = 'flex';
-
+            modal.querySelector('h3').textContent = 'Compra Finalizada!';
+            modal.querySelector('h3').className = 'text-2xl font-bold text-green-600 mb-4';
+            modal.querySelector('p').textContent = 'Sua compra foi processada com sucesso. Obrigado!';
+            modal.style.display = 'flex';
             cart = [];
             renderCart();
         }
 
-        // Add event listeners
-        addToCartButton.addEventListener('click', addToCart);
+        // Dynamically render product cards
+        function renderProducts() {
+            productsGrid.innerHTML = '';
+            // Skip the first product, which is already featured
+            products.slice(1).forEach(p => {
+                const productCard = document.createElement('div');
+                productCard.className = 'bg-gray-50 p-4 rounded-xl container-shadow flex flex-col items-center text-center';
+                productCard.innerHTML = `
+                    <img src="${p.image}" alt="${p.name}" class="w-full h-auto rounded-lg object-cover mb-4">
+                    <h3 class="text-xl font-bold mb-1">${p.name}</h3>
+                    <p class="text-purple-600 font-semibold mb-2">R$ ${p.price.toFixed(2)}</p>
+                    <p class="text-sm text-gray-600 mb-4 flex-grow">${p.description}</p>
+                    <button data-product-id="${p.id}" class="addToCartButton w-full bg-gradient-purple-pink text-white p-2 rounded-lg font-semibold hover:opacity-90 transition-opacity duration-300">
+                        Adicionar
+                    </button>
+                `;
+                productsGrid.appendChild(productCard);
+            });
+        }
+
+        // Dynamically render service cards
+        function renderServices() {
+            servicesGrid.innerHTML = '';
+            services.forEach(s => {
+                const serviceCard = document.createElement('div');
+                serviceCard.className = 'bg-gray-50 p-6 rounded-xl container-shadow flex flex-col items-center text-center';
+                serviceCard.innerHTML = `
+                    <h3 class="text-2xl font-semibold text-purple-700 mb-2">${s.name}</h3>
+                    <p class="text-gray-700 mb-4 text-center">${s.description}</p>
+                    <p class="text-purple-600 font-bold text-lg mb-4">R$ ${s.price.toFixed(2)}</p>
+                    <button data-product-id="${s.id}" class="addToCartButton w-full bg-gradient-purple-pink text-white p-2 rounded-lg font-semibold hover:opacity-90 transition-opacity duration-300">
+                        Adicionar ao Carrinho
+                    </button>
+                `;
+                servicesGrid.appendChild(serviceCard);
+            });
+        }
+
+        // Event listeners
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.addToCartButton')) {
+                const button = e.target.closest('.addToCartButton');
+                const itemId = button.dataset.productId;
+                addToCart(itemId);
+            }
+            if (e.target.closest('.updateQuantityButton')) {
+                const button = e.target.closest('.updateQuantityButton');
+                const itemId = button.dataset.id;
+                const change = button.textContent === '+' ? 1 : -1;
+                updateQuantity(itemId, change);
+            }
+            if (e.target.closest('.removeButton')) {
+                const button = e.target.closest('.removeButton');
+                const itemId = button.dataset.id;
+                removeFromCart(itemId);
+            }
+        });
 
         cartButton.addEventListener('click', () => {
             cartSection.classList.toggle('translate-x-full');
@@ -274,11 +358,12 @@
             modal.style.display = 'none';
         });
 
-        // Initial render
+        // Initial rendering on page load
         document.addEventListener('DOMContentLoaded', () => {
             renderCart();
+            renderProducts();
+            renderServices();
         });
-
     </script>
 </body>
 </html>
