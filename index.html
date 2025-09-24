@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flay Defind</title>
+    <title>Nana Glow</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Poppins for a modern, clean look -->
@@ -20,12 +21,12 @@
         .container-shadow {
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
         }
-        /* Custom gradient classes */
-        .bg-gradient-purple-pink {
-            background-image: linear-gradient(to right, #8b5cf6, #ec4899);
+        /* Custom gradient classes: Dark Red and Silver */
+        .bg-gradient-red-silver {
+            background-image: linear-gradient(to right, #8b0000, #a8a8a8);
         }
-        .text-gradient-purple-pink {
-            background-image: linear-gradient(to right, #8b5cf6, #ec4899);
+        .text-gradient-red-silver {
+            background-image: linear-gradient(to right, #8b0000, #a8a8a8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -47,12 +48,13 @@
         <nav class="container mx-auto flex justify-between items-center relative z-10">
             <div class="flex-1 flex justify-center">
                 <a href="#" class="flex items-center space-x-2">
-                    <img src="https://i.imgur.com/EnDWs22.png" alt="Logo Flay Defind" class="h-24 md:h-32">
+                    <!-- Replace logo image with text for a clean look -->
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-gradient-red-silver">Nana Glow</h1>
                 </a>
             </div>
             <!-- Cart Button and counter -->
             <div class="relative">
-                <button id="cartButton" class="bg-gradient-purple-pink text-white p-3 rounded-full hover:bg-purple-600 transition-colors duration-300 relative">
+                <button id="cartButton" class="bg-gradient-red-silver text-white p-3 rounded-full hover:opacity-90 transition-colors duration-300 relative">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span id="cartItemCount" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-pink-500 rounded-full transform translate-x-1/2 -translate-y-1/2">0</span>
                 </button>
@@ -62,41 +64,20 @@
 
     <!-- Main Content Area -->
     <main class="container mx-auto p-4 md:p-6 grid lg:grid-cols-3 gap-8">
-        
-        <!-- Product and Services Section -->
+        <!-- Services Section -->
         <section class="lg:col-span-2 space-y-8">
-            <!-- Featured Product Section -->
-            <div class="bg-white rounded-2xl p-6 container-shadow flex flex-col md:flex-row items-center md:items-start gap-8">
-                <div class="md:w-1/2 w-full flex-shrink-0">
-                    <img src="https://i.ibb.co/kVnBmRFL/Defind-Flay-Pomada-Modeladora.png" alt="Pomada Modeladora de Uva Flay Defind" class="w-full h-auto rounded-xl container-shadow">
-                </div>
-                <div class="md:w-1/2 w-full text-center md:text-left">
-                    <h1 class="text-4xl font-extrabold text-gray-900 mb-2">Pomada Modeladora</h1>
-                    <p class="text-lg text-gray-600 mb-4">Marca: Flay Defind</p>
-                    <p class="text-xl font-semibold text-purple-600 mb-6">R$ 20,00</p>
-                    <p class="text-gray-700 mb-6">
-                        A Pomada Modeladora de Uva Flay Defind é o toque final perfeito para suas tranças. Enriquecido com extrato natural de uva, proporciona um brilho intenso, nutrição e um aroma delicioso. Sua fórmula leve não pesa e ajuda a manter a hidratação dos fios e o alinhamento das tranças. Ideal para uso diário.
-                    </p>
-                    <button data-product-id="1" class="addToCartButton w-full md:w-auto bg-gradient-purple-pink text-white p-3 rounded-lg font-bold text-lg hover:opacity-90 transition-opacity duration-300 container-shadow">
-                        Adicionar ao Carrinho
-                    </button>
-                </div>
-            </div>
-
-            <!-- More Products Section -->
-            <div class="bg-white rounded-2xl p-6 container-shadow">
-                <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Outros Produtos</h2>
-                <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    <!-- Products will be dynamically generated here by JavaScript -->
-                </div>
-            </div>
-
-            <!-- Services and Pricing Section -->
             <div class="bg-white rounded-2xl p-6 container-shadow">
                 <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Nossos Serviços</h2>
                 <div id="servicesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Services will be dynamically generated here by JavaScript -->
                 </div>
+            </div>
+            <!-- Definition of Hair Section -->
+            <div class="bg-white rounded-2xl p-6 container-shadow">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Definição de Cabelo</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    A definição de cabelo é a técnica de realçar a forma e a textura natural dos seus fios. Usando produtos e métodos específicos, buscamos dar mais vida e contorno aos cachos, crespos ou ondulados, garantindo que cada fio se posicione de maneira a criar volume, movimento e brilho, sem a necessidade de texturas artificiais. É a celebração da sua beleza única, revelando a verdadeira essência do seu cabelo.
+                </p>
             </div>
         </section>
 
@@ -128,9 +109,9 @@
     <!-- About Section -->
     <section class="container mx-auto p-4 md:p-6 text-center mb-8">
         <div class="bg-white rounded-2xl p-6 container-shadow">
-            <h2 class="text-3xl font-bold text-gradient-purple-pink mb-4">Sobre a Flay Defind</h2>
+            <h2 class="text-3xl font-bold text-gradient-red-silver mb-4">Sobre a Nana Glow</h2>
             <p class="text-gray-700 mb-6 max-w-2xl mx-auto">
-                Na Flay Defind, acreditamos que a beleza está na sua essência. Nosso objetivo é criar produtos que realcem o brilho natural e o poder do seu cabelo, com ingredientes de alta qualidade e fórmulas inovadoras. A Pomada Modeladora de Uva é o nosso carro-chefe, desenvolvido para nutrir e dar vida às suas tranças.
+                Na Nana Glow, acreditamos que a beleza está na sua essência. Nosso objetivo é realçar o brilho natural e o poder dos seus cabelos. Somos especialistas em transformar e valorizar a beleza de cada fio, com técnicas de tranças e definição que celebram a sua identidade.
             </p>
             <div class="text-center text-gray-700 mb-4">
                 <p>Entre em contato conosco:</p>
@@ -138,13 +119,13 @@
             </div>
             <!-- Social media icons -->
             <div class="flex justify-center space-x-6 text-3xl text-gray-600">
-                <a href="https://www.instagram.com/flavia_.lu" target="_blank" rel="noopener noreferrer" class="hover:text-purple-600 transition-colors duration-300">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="hover:text-red-700 transition-colors duration-300">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://wa.me/5511976094344" target="_blank" rel="noopener noreferrer" class="hover:text-purple-600 transition-colors duration-300">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="hover:text-red-700 transition-colors duration-300">
                     <i class="fab fa-whatsapp"></i>
                 </a>
-                <a href="#" class="hover:text-purple-600 transition-colors duration-300"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-red-700 transition-colors duration-300"><i class="fab fa-facebook-f"></i></a>
             </div>
         </div>
     </section>
@@ -152,7 +133,7 @@
     <!-- Footer -->
     <footer class="bg-gray-800 text-white p-4 text-center">
         <div class="container mx-auto">
-            <p class="text-sm">&copy; 2025 Flay Defind. Todos os direitos reservados.</p>
+            <p class="text-sm">&copy; 2025 Nana Glow. Todos os direitos reservados.</p>
         </div>
     </footer>
 
@@ -161,7 +142,7 @@
         <div class="bg-white p-8 rounded-lg shadow-lg text-center max-w-sm w-full">
             <h3 class="text-2xl font-bold text-green-600 mb-4">Compra Finalizada!</h3>
             <p class="text-gray-700 mb-6">Sua compra foi processada com sucesso. Obrigado!</p>
-            <button id="closeModalButton" class="bg-purple-600 text-white p-2 rounded-lg hover:bg-purple-700 transition-colors duration-300">
+            <button id="closeModalButton" class="bg-red-700 text-white p-2 rounded-lg hover:bg-red-800 transition-colors duration-300">
                 Fechar
             </button>
         </div>
@@ -169,17 +150,13 @@
 
     <!-- JavaScript for page functionality -->
     <script>
-        // Data for products and services
-        const products = [
-            { id: 1, name: 'Pomada Modeladora', price: 20.00, image: 'https://i.ibb.co/kVnBmRFL/Defind-Flay-Pomada-Modeladora.png', description: 'O toque final perfeito para suas tranças. Brilho intenso e nutrição com extrato de uva.' },
-            { id: 2, name: 'Óleo Reparador', price: 35.00, image: 'https://i.ibb.co/mFqfgpGx/IMG-3522.jpg', description: 'Restaura a fibra capilar, deixando os cabelos mais fortes e com brilho.' },
-            { id: 3, name: 'Creme de Pentear', price: 45.00, image: 'https://i.ibb.co/sp0wsFbB', description: 'Define os cachos e mantém a hidratação por mais tempo.' },
-            { id: 4, name: 'Shampoo Nutritivo', price: 30.00, image: 'https://placehold.co/400x400/10b981/fff?text=Shampoo+Nutritivo', description: 'Limpeza suave que nutre e fortalece os fios da raiz às pontas.' },
-        ];
-        
+        // Data for services only, as requested.
         const services = [
-            { id: 5, name: 'Tranças Nagô', price: 60.00, image: 'https://placehold.co/400x400/6b7280/fff?text=Tranças+Nagô', description: 'Um estilo tradicional e artístico, feito rente ao couro cabeludo, ideal para um visual marcante.' },
-            { id: 6, name: 'Definição de Cabelo', price: 70.00, image: 'https://placehold.co/400x400/9ca3af/fff?text=Definição', description: 'Realça a beleza e a forma natural dos seus cachos com técnicas e produtos de alta qualidade.' },
+            { id: 1, name: 'Tranças Nagô', price: 60.00, image: 'https://placehold.co/400x400/6b7280/fff?text=Tranças+Nagô', description: 'Um estilo tradicional e artístico, feito rente ao couro cabeludo, ideal para um visual marcante.' },
+            { id: 2, name: 'Trança Box Braids', price: 150.00, image: 'https://placehold.co/400x400/6b7280/fff?text=Box+Braids', description: 'Tranças soltas e protetoras que oferecem um look moderno e versátil.' },
+            { id: 3, name: 'Trança Twist', price: 120.00, image: 'https://placehold.co/400x400/6b7280/fff?text=Twist', description: 'Torções que criam um visual elegante e com mais textura.' },
+            { id: 4, name: 'Trança Solta', price: 100.00, image: 'https://placehold.co/400x400/6b7280/fff?text=Trança+Solta', description: 'Tranças feitas no próprio cabelo, perfeitas para um visual natural e estiloso.' },
+            { id: 5, name: 'Definição de Cabelo', price: 70.00, image: 'https://placehold.co/400x400/9ca3af/fff?text=Definição', description: 'Realça a beleza e a forma natural dos seus cachos com técnicas e produtos de alta qualidade.' },
         ];
 
         let cart = [];
@@ -194,7 +171,6 @@
         const checkoutButton = document.getElementById('checkoutButton');
         const modal = document.getElementById('modal');
         const closeModalButton = document.getElementById('closeModalButton');
-        const productsGrid = document.getElementById('productsGrid');
         const servicesGrid = document.getElementById('servicesGrid');
 
         // Function to render the cart content and update totals
@@ -234,10 +210,9 @@
             cartItemCountSpan.textContent = totalItems;
         }
 
-        // Add a product or service to the cart
+        // Add a service to the cart
         function addToCart(itemId) {
-            const allItems = [...products, ...services];
-            const item = allItems.find(p => p.id === parseInt(itemId));
+            const item = services.find(s => s.id === parseInt(itemId));
             
             if (item) {
                 const cartItem = cart.find(i => i.id === item.id);
@@ -286,26 +261,6 @@
             renderCart();
         }
 
-        // Dynamically render product cards
-        function renderProducts() {
-            productsGrid.innerHTML = '';
-            // Skip the first product, which is already featured
-            products.slice(1).forEach(p => {
-                const productCard = document.createElement('div');
-                productCard.className = 'bg-gray-50 p-4 rounded-xl container-shadow flex flex-col items-center text-center';
-                productCard.innerHTML = `
-                    <img src="${p.image}" alt="${p.name}" class="w-full h-auto rounded-lg object-cover mb-4">
-                    <h3 class="text-xl font-bold mb-1">${p.name}</h3>
-                    <p class="text-purple-600 font-semibold mb-2">R$ ${p.price.toFixed(2)}</p>
-                    <p class="text-sm text-gray-600 mb-4 flex-grow">${p.description}</p>
-                    <button data-product-id="${p.id}" class="addToCartButton w-full bg-gradient-purple-pink text-white p-2 rounded-lg font-semibold hover:opacity-90 transition-opacity duration-300">
-                        Adicionar
-                    </button>
-                `;
-                productsGrid.appendChild(productCard);
-            });
-        }
-
         // Dynamically render service cards
         function renderServices() {
             servicesGrid.innerHTML = '';
@@ -313,10 +268,10 @@
                 const serviceCard = document.createElement('div');
                 serviceCard.className = 'bg-gray-50 p-6 rounded-xl container-shadow flex flex-col items-center text-center';
                 serviceCard.innerHTML = `
-                    <h3 class="text-2xl font-semibold text-purple-700 mb-2">${s.name}</h3>
+                    <h3 class="text-2xl font-semibold text-red-700 mb-2">${s.name}</h3>
                     <p class="text-gray-700 mb-4 text-center">${s.description}</p>
-                    <p class="text-purple-600 font-bold text-lg mb-4">R$ ${s.price.toFixed(2)}</p>
-                    <button data-product-id="${s.id}" class="addToCartButton w-full bg-gradient-purple-pink text-white p-2 rounded-lg font-semibold hover:opacity-90 transition-opacity duration-300">
+                    <p class="text-red-700 font-bold text-lg mb-4">R$ ${s.price.toFixed(2)}</p>
+                    <button data-product-id="${s.id}" class="addToCartButton w-full bg-gradient-red-silver text-white p-2 rounded-lg font-semibold hover:opacity-90 transition-opacity duration-300">
                         Adicionar ao Carrinho
                     </button>
                 `;
@@ -361,7 +316,6 @@
         // Initial rendering on page load
         document.addEventListener('DOMContentLoaded', () => {
             renderCart();
-            renderProducts();
             renderServices();
         });
     </script>
